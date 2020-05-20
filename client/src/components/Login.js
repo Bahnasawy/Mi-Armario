@@ -27,7 +27,7 @@ export default class Login extends React.Component
             const username = this.username.current.value
             const query = `{customer(input:{username: "${username}", password: "${password}", id:""}){id username}}`
             const options = {
-                url: "http://localhost:8081/graphql",
+                url: "/graphql",
                 method: "POST",
                 headers: {'Accept': 'application/json',
                 'Content-Type': 'application/json'},
@@ -60,7 +60,7 @@ export default class Login extends React.Component
     async getProucts(){
         const query = `{product{id name}}`
         const options = {
-            url: "http://localhost:8081/graphql",
+            url: "/graphql",
             method: "POST",
             headers: {'Accept': 'application/json',
             'Content-Type': 'application/json'},
@@ -215,7 +215,7 @@ export default class Login extends React.Component
           }`
         
         const options = {
-            url: "http://localhost:8081/graphql",
+            url: "/graphql",
             method: "POST",
             headers: {'content-type': 'application/json'},
             data: {

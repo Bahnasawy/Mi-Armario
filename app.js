@@ -28,7 +28,7 @@ const upload = multer({
 }).single("myImage");
 
 
-app.use(cors({origin: "http://localhost:3000", credentials: true}))
+app.use(cors({origin: "localhost:3000", credentials: true}))
 app.use(express.static('public'))
 app.use(express.static(path.join(a.__dirname, 'client', 'build')));
 app.use(cookieSession({
@@ -78,7 +78,7 @@ async function send(id, body)
   }
 
   const options = {
-    url: "http://localhost:5000/graphql",
+    url: "http://localhost:8080/graphql",
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -142,5 +142,5 @@ app.get("/", home)
 
 app.post("/upload", up)
 
-console.log("Listening on port 5000")
-app.listen(8081);
+console.log("Listening on port 8080")
+app.listen(8080);

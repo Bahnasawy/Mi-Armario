@@ -44,7 +44,7 @@ class Root extends React.Component
     try
     {
       axios({
-        url: 'http://localhost:8081/',
+        url: '/',
         method: 'GET',
         withCredentials: true
       })
