@@ -4,11 +4,11 @@ import fs from 'fs'
 
 let client = new pg.Pool(
   {
-    host     : 'localhost',
+    host     : 'store.c2lwg9ok3iyk.us-east-1.rds.amazonaws.com',
     user     : 'bahnasawy',
-    password : '',
+    password : '123456789',
     port     : 5432,
-    database : 'Store'
+    database : 'store'
   }
 )
 
