@@ -10,6 +10,7 @@ import axios from 'axios';
 import jimp from 'jimp';
 import cors from 'cors';
 import gql from './api.js';
+import a from './a.js';
 let app = express();
 const storage = multer.diskStorage({
   destination: "./public/images/temp/",
@@ -28,7 +29,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(a.__dirname, 'client', 'build')));
 app.use(cookieSession({
   name: "session",
   keys: ['Key1', 'Key2'],
