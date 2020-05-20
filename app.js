@@ -28,6 +28,7 @@ const upload = multer({
 
 app.use(cors({origin: "http://localhost:3000", credentials: true}))
 app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use(cookieSession({
   name: "session",
   keys: ['Key1', 'Key2'],
