@@ -31,10 +31,5 @@
     "multer": "^1.4.2",
     "node-fetch": "^2.6.0",
     "pg": "^8.2.1"
-  },
-  "cjs": true,
-  "devDependencies": {
-    "@babel/plugin-syntax-import-meta": "^7.8.3"
-  },
-  "plugins": ["@babel/plugin-syntax-import-meta"]
+  }
 }

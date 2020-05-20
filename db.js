@@ -104,7 +104,7 @@ async function del(columns){
 async function readDir(directory){
   try{
     const response = fs.readdirSync(`./public/images/${directory}`, (err, files) => files)
-    return response
+    return response.filter((item) => item !== ".hidden" ? item : null)
   }
   catch(e)
   {
