@@ -31,6 +31,7 @@ const upload = multer({
 app.use(cors({origin: "localhost:3000", credentials: true}))
 app.use(express.static('public'))
 app.use(express.static(path.join(a.__dirname, 'client', 'build')));
+app.use(express.static(path.join(a.__dirname, 'client', 'build', 'static')));
 app.use(cookieSession({
   name: "session",
   keys: ['Key1', 'Key2'],
@@ -138,31 +139,7 @@ function up(req, res)
  });
 }
 
-async function reactUpload(req, res)
-{
-  const upload = await axios.get("http://localhost:3000/upload")
-  res.send(upload)
-}
-
-async function reactAbout(req, res)
-{
-  const about = await axios.get("http://localhost:3000/upload")
-  res.send(about)
-}
-
-async function reactContact(req, res)
-{
-  const contact = await axios.get("http://localhost:3000/upload")
-  res.send(contact)
-}
-
 app.get("/", home)
-
-app.get("/upload", reactUpload)
-
-app.get("/about", reactAbout)
-
-app.get("/contact", reactContact)
 
 app.post("/upload", up)
 
