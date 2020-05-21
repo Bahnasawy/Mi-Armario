@@ -9,6 +9,7 @@ import crypto from 'crypto'
 import axios from 'axios'
 import jimp from 'jimp'
 import cors from 'cors'
+import pretty from 'pretty'
 import gql from './api.js';
 import a from './a.js'
 
@@ -140,6 +141,19 @@ function up(req, res)
 }
 
 app.get("/", home)
+
+app.get('/*', async function (req, res) {
+  try
+  {
+    res.setHeader('Content-type','text/html')
+    const html = await fs.readFile(path.join(a.__dirname, 'client', 'build', 'index.html'))
+    res.send(pretty(html.toString()).toString());
+  }catch (e) {
+    console.log(e)
+    res.sendStatus(404)
+  }
+  
+});
 
 app.post("/upload", up)
 
