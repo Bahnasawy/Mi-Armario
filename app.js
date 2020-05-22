@@ -127,16 +127,16 @@ function up(req, res)
   }
 
   upload(req, res, (err) => {
-    jimp.read(`./public/images/temp/${req.file.filename}`,
+    try{
+      jimp.read(path.join(a.__dirname, 'public', 'images', 'temp', req.file.filename),
       (err, image) => {
-        image.write(`./public/images/${category[req.body.category]}/${id.toString('hex')}.png`)
+        image.write(path.join(a.__dirname, 'public', 'images', 'temp', category[req.body.category], `${id.toString('hex')}.png`))
       })
-
-    fs.remove(`./public/images/temp/${req.file.filename}`, (err) => console.log(err))
-    send(id, req.body)
-
-    if(!err)
-       return res.sendStatus(200);
+      fs.remove(path.join(a.__dirname, 'public', 'images', 'temp', req.file.filename), (err) => console.log(err))
+      send(id, req.body)
+    }
+    catch (error) {
+      console.log(error)      }
  });
 }
 
