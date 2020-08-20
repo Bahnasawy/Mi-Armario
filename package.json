@@ -32,5 +32,6 @@
     "node-fetch": "^2.6.0",
     "pg": "^8.2.1",
     "pretty": "^2.0.0"
-  }
+  },
+  "repository": "https://github.com/Bahnasawy/mi-armario.git"
 }
